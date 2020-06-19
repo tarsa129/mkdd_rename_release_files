@@ -5,8 +5,8 @@ def rename_file(file):
     if "coname" in file:
         return "track_name.bti"
     if "names" in file:
-        return "track_small_banner.bti"
-    return "track_big_banner.bti"
+        return "track_small_logo.bti"
+    return "track_big_logo.bti"
     
 
 num_of_arcs = 0
