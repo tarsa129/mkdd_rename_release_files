@@ -22,7 +22,7 @@ def process_folder(directory_name):
                     os.rename(file, "lap_music_normal.ast")
             elif(file.name.endswith(".arc")):
                 num_of_arcs -= -1
-                if file.name.lower().endswith("l"):
+                if file.name.lower().endswith("l.arc"):
                     os.rename(file, "track_mp.arc")
                 else:
                     os.rename(file, "track.arc")
@@ -30,6 +30,9 @@ def process_folder(directory_name):
                 os.rename(file, "minimap.json")
             elif(file.name.endswith(".ght")):
                 os.rename(file, "staffghost.ght")
+            elif(file.name.endswith(".ini")):
+                if not file.name.lower() == "trackinfo.ini":
+                    os.rename(file, "trackinfo.ini")
         elif file.is_dir():
             print("Images folder: " + file.name)
             os.rename(file, "course_images")
