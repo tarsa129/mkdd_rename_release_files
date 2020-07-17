@@ -2,17 +2,21 @@ import os
 import shutil
 
 def rename_file(file):
-    if "coname" in file:
+    print("file is: " + file)
+    if "mozi" in file:
         return "track_name.bti"
-    if "names" in file:
+    elif "coname" in file: 
+        return "track_name.bti"
+    elif "names" in file:
         return "track_small_logo.bti"
+    
     return "track_big_logo.bti"
 
 def process_folder(directory_name):
     num_of_arcs = 0
 
     os.chdir(directory_name)
-    #print(directory_name)
+    print("current in: " + os.getcwd())
     for file in os.scandir(os.getcwd()):
         if file.is_file():
             if(file.name.endswith(".ast")):
@@ -39,8 +43,8 @@ def process_folder(directory_name):
             #folder = file.name
             os.chdir("./" + "course_images")
             
-            languages = {"en" : "English", "ge" : "German", "sp":  "Spanish", "it":  "Italian", "fr" : "French", "de": "German", "es" : "Spanish"}
-            shortlang = ["English", "German", "Spanish", "Italian", "French"]
+            languages = {"en" : "English", "ge" : "German", "sp":  "Spanish", "it":  "Italian", "fr" : "French", "de": "German", "es" : "Spanish", "jp" : "Japanese"}
+            shortlang = ["English", "German", "Spanish", "Italian", "French", "Japanese"]
             
             for language in shortlang:
                 if not os.path.isdir(language):
@@ -51,7 +55,7 @@ def process_folder(directory_name):
                 bti_file_l = bti_file.lower()
                 if bti_file_l.endswith(".bti"):
                     print(bti_file_l)
-                    if "cop" in bti_file_l:
+                    if "cop" in bti_file_l or "snap" in bti_file_l:
                         os.rename(bti_file, "track_image.bti")
                         for language in shortlang:
                             shutil.copy("track_image.bti", language)
@@ -74,7 +78,7 @@ def process_folder(directory_name):
                 shutil.move(new_file_name, "English");
                 os.remove(remaining_file);
                                 
-            os.chdir(directory_name)              
+            os.chdir('..')              
 
 
     if num_of_arcs == 1:
@@ -96,6 +100,8 @@ if __name__ == "__main__":
     
     shutil.copytree(args.input, args.input + "_copy")
     
+    #print(os.exists(args.input + "_copy"))
+    
     if args.output is None:
         output = args.input
         print("Will write to: " + output + ".zip")
@@ -104,7 +110,7 @@ if __name__ == "__main__":
         
     process_folder(args.input + "_copy")
      
-    os.chdir(os.path.dirname(os.path.realpath(__file__)))
+    os.chdir("..")
     print(os.getcwd())
     
     shutil.make_archive(output, 'zip', args.input + "_copy")
