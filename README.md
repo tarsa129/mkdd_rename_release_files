@@ -10,7 +10,7 @@ The .bat files can be used to easily specify the name of the output.zip file.
 # Naming files
 Make sure that the release files have the same name as the in-game files that they are replacing.
 
-Both .py files require a "bti_images" folder with all various .bti files. They should have their in-game name with a tag at the end to specify a specific language. Images with no tags will be considered the default tag. For example, "Peach_name" will be seen at the default large Peach Beach logo, but "Peach_name_es.bti" will be seen as the large Peach Beach logo in Spanish. The program will sort these images. <br/>
+Both .py files require a "bti_images" folder with all various .bti files. They should have their in-game name with a tag at the end to specify a specific language. Images with no tags will be considered the default tag. For example, "Peach_name.bti" will be seen at the default large Peach Beach logo, but "Peach_name_es.bti" will be seen as the large Peach Beach logo in Spanish. The program will sort these images. <br/>
 Here are the tags: English: "_en", German: "_de" and "_ge", Spanish: "_sp" and "_es", French: "_fr", Italian: "_it"
 
 If you have a track mod that is replacing Peach Beach, then:<br/>
@@ -20,7 +20,7 @@ If you have a track mod that is replacing Peach Beach, then:<br/>
 and so on.
 If you are making a course, don't forget to make a track.ini file for the patcher.
 
-If you have a character mod, make your release folder can have:<br/>
+If you have a character mod, your release folder can have:<br/>
 -driver folders (with the same name as the folders used in root -> MRAM.arc -> driver)
 -kart folders (with the same name as the folders used in root -> MRAM.arc -> kart)
 
