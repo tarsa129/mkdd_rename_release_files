@@ -9,10 +9,10 @@ The .bat files can be used to easily specify the name of the output.zip file.
 
 # Naming files
 Make sure that the release files have the same name as the in-game files that they are replacing.
-For example, if your track is replacing Peach Beach, then:
--Your track .arc file should be named "Peach.arc"
--Your course name files should be named "coname_peach_beach.bti"
--Your regular speed course audio should be named "COURSE_CIRCUIT_0.x.32.c4.ast"
+For example, if your track is replacing Peach Beach, then:<br/>
+-Your track .arc file should be named "Peach.arc"<br/>
+-Your course name files should be named "coname_peach_beach.bti"<br/>
+-Your regular speed course audio should be named "COURSE_CIRCUIT_0.x.32.c4.ast"<br/>
 and so on.
 If you are making a course, don't forget to make a track.ini file for the patcher
 

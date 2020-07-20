@@ -23,8 +23,11 @@ if __name__ == "__main__":
         output = args.input + " patch"
     else:
         output = args.output
+        if output.endswith(".zip"):
+            output = output[:-4]
+        
     
-    folder = output #aka the finished product
+    folder = args.input + " patch" #aka the finished product
     orig_folder = args.input
     
     #shutil.copytree(orig_folder, folder)
@@ -102,10 +105,8 @@ if __name__ == "__main__":
         else:
             shutil.copytree(orig_folder + "/"+  file.name, "files/MRAM.arc/mram/driver/" + file.name)
     
-    shutil.make_archive(output, "zip", folder)
-    
     os.chdir("..")
-    
+    shutil.make_archive(output, "zip", folder)
     shutil.rmtree(folder)
     
     
