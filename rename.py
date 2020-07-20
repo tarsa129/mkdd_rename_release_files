@@ -74,8 +74,10 @@ def process_folder(directory_name):
             
             for remaining_file in leftover_files:
                 new_file_name = rename_file(remaining_file)
-                shutil.copyfile(remaining_file, new_file_name);
-                shutil.move(new_file_name, "English");
+                for language in shortlang:
+                    shutil.copyfile(remaining_file, language + "/" + new_file_name);
+
+                    
                 os.remove(remaining_file);
                                 
             os.chdir('..')              
