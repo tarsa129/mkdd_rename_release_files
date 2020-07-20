@@ -20,7 +20,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
     
     if args.output is None:
-        output = args.input + " patch"
+        output = args.input
     else:
         output = args.output
         if output.endswith(".zip"):
