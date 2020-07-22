@@ -41,7 +41,7 @@ if __name__ == "__main__":
         f.write("[Config]\n")
         f.write("author = Unknown\n")
         f.write("modname = Character Mod\n")
-        f.write("decription = Character Mod\n")
+        f.write("description = Character Mod\n")
         f.close()
         
         shutil.move("modinfo.ini", folder)
