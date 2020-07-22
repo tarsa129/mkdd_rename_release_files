@@ -57,14 +57,14 @@ if __name__ == "__main__":
     os.makedirs("files/MRAM.arc/mram/driver")
     os.makedirs("files/MRAM.arc/mram/kart")
     os.makedirs("files/race2d.arc/mram_race2d/timg")
-    os.makedirs("files/Scenedata/English/menu.arc/menu/timg")
+    os.makedirs("files/SceneData/English/menu.arc/menu/timg")
     
     
     languages = {"en" : "English", "ge" : "German", "sp":  "Spanish", "it":  "Italian", "fr" : "French", "de": "German", "es" : "Spanish", "jp" : "Japanese"}
     shortlang = ["German", "Spanish", "Italian", "French", "Japanese"]
             
     for language in shortlang:
-        shutil.copytree("files/Scenedata/English", "files/Scenedata/" + language);
+        shutil.copytree("files/SceneData/English", "files/SceneData/" + language);
     
     shortlang.insert(0, "English")
     
@@ -82,7 +82,7 @@ if __name__ == "__main__":
                 if "chaname_" in bti_file_l:
                     found_language = False
                     for abbr in languages.keys(): #if a language, sort 
-                        annoying_path = "files/Scenedata/" + languages.get(abbr) + "/menu.arc/menu/timg/"
+                        annoying_path = "files/SceneData/" + languages.get(abbr) + "/menu.arc/menu/timg/"
                         new_file_name = bti_file_l.replace("_" + abbr, "")
                         if bti_file_l.endswith("_" + abbr + ".bti"):                     
                             print(bti_file_l + " to become " + new_file_name)
@@ -92,7 +92,7 @@ if __name__ == "__main__":
                     if not found_language: #use default .bti
                         print("a default .bti is " + bti_file)
                         for language in shortlang:
-                            annoying_path = "files/Scenedata/" + language + "/menu.arc/menu/timg/"
+                            annoying_path = "files/SceneData/" + language + "/menu.arc/menu/timg/"
                             try:
                                 shutil.copyfile(bti_folder + bti_file, annoying_path + bti_file_l)
                             except:
