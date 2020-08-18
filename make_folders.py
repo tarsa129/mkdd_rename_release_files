@@ -14,8 +14,7 @@ if __name__ == "__main__":
                         help = "Outputted .zip file with the mods")
     parser.add_argument("--author", default = None, 
                         help="Author of the mod")
-    parser.add_argument("--ini_file", default = None,
-                        help="Path to the .ini file to be used")
+
                         
     args = parser.parse_args()
     
@@ -36,28 +35,17 @@ if __name__ == "__main__":
     
     os.mkdir(folder)
     
-    if args.ini_file is None:
-        f = open("modinfo.ini", "w+")
-        f.write("[Config]\n")
-        f.write("author = Unknown\n")
-        f.write("modname = Character Mod\n")
-        f.write("description = Character Mod\n")
-        f.close()
-        
-        shutil.move("modinfo.ini", folder)
-    else:
-        shutil.copy(args.ini_file, folder)
+    
+
     
     os.chdir(folder)
-    
-    if not args.ini_file is None:
-        for file in os.scandir(os.getcwd()):
-           os.rename(file, "modinfo.ini")
+   
     
     os.makedirs("files/MRAM.arc/mram/driver")
     os.makedirs("files/MRAM.arc/mram/kart")
     os.makedirs("files/race2d.arc/mram_race2d/timg")
     os.makedirs("files/SceneData/English/menu.arc/menu/timg")
+    
     
     
     languages = {"en" : "English", "ge" : "German", "sp":  "Spanish", "it":  "Italian", "fr" : "French", "de": "German", "es" : "Spanish", "jp" : "Japanese"}
@@ -101,9 +89,15 @@ if __name__ == "__main__":
                 else: 
                     shutil.copyfile(bti_folder + bti_file, "files/race2d.arc/mram_race2d/timg/" + bti_file_l)
         elif file.name.endswith("_all"):
-            shutil.copytree(orig_folder  + "/"+ file.name, "files/MRAM.arc/mram/kart/" + file.name)
+            print(file.name + " moved to " + "files/MRAM.arc/mram/kart/" + file.name)
+            shutil.copytree(orig_folder + "/"+ file.name, "files/MRAM.arc/mram/kart/" + file.name)
+        elif file.name == "item":
+            shutil.copytree(orig_folder + "/item", "files/MRAM.arc/mram/item")
+        elif file.name == "modinfo.ini":
+            shutil.copyfile(orig_folder + "/modinfo.ini", folder + "/modinfo.ini")
         else:
             shutil.copytree(orig_folder + "/"+  file.name, "files/MRAM.arc/mram/driver/" + file.name)
+  
     
     os.chdir("..")
     shutil.make_archive(output, "zip", folder)
