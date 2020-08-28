@@ -54,7 +54,7 @@ def process_folder(directory_name):
             for bti_file in bti_files:
                 bti_file_l = bti_file.lower()
                 if bti_file_l.endswith(".bti"):
-                    print(bti_file_l)
+                    #print(bti_file_l)
                     if "cop" in bti_file_l or "snap" in bti_file_l:
                         os.rename(bti_file, "track_image.bti")
                         for language in shortlang:
@@ -75,7 +75,8 @@ def process_folder(directory_name):
             for remaining_file in leftover_files:
                 new_file_name = rename_file(remaining_file)
                 for language in shortlang:
-                    shutil.copyfile(remaining_file, language + "/" + new_file_name);
+                    if not os.path.exists(language + "/" + new_file_name):
+                        shutil.copyfile(remaining_file, language + "/" + new_file_name);
 
                     
                 os.remove(remaining_file);
