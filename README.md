@@ -19,6 +19,7 @@ If you have a track mod that is replacing Peach Beach, then:<br/>
 -Your regular speed course audio should be named "COURSE_CIRCUIT_0.x.32.c4.ast"<br/>
 and so on.
 If you are making a course, don't forget to make a track.ini file for the patcher.
+If there is only one .arc file in the folder, this program will copy that .arc for multiplayer mode. 
 
 If you have a character mod, your release folder can have:<br/>
 -driver folders (with the same name as the folders used in root -> MRAM.arc -> driver)
