@@ -6,6 +6,7 @@ Put the .py file (and the .bat file, if wanted) in the same directory as the fol
 Dragging the folder onto the .py file will create a .zip file with the same name as the folder. This .zip file can be used with the editor.
 Be sure to use rename.py for course folders, and make_folders.py for character mods.
 The .bat files can be used to easily specify the name of the output.zip file.
+.ini files in the input folders will be automatically detected.
 
 # Naming files
 Make sure that the release files have the same name as the in-game files that they are replacing.
@@ -22,8 +23,11 @@ If you are making a course, don't forget to make a track.ini file for the patche
 If there is only one .arc file in the folder, this program will copy that .arc for multiplayer mode. 
 
 If you have a character mod, your release folder can have:<br/>
--driver folders (with the same name as the folders used in root -> MRAM.arc -> driver)
--kart folders (with the same name as the folders used in root -> MRAM.arc -> kart)
+-driver folders (with the same name as the folders used in root -> MRAM.arc -> driver)<br/>
+-kart folders (with the same name as the folders used in root -> MRAM.arc -> kart)<br/>
+-selectAnm (with the name selectAnm) <br/>
+-item (with the name item) <br/>
+-flat images (all within the folder bti_files)
 
 # Command-line Options:
 
@@ -32,9 +36,9 @@ input: the name of the folder with the release files<br/>
 output: the name of the .zip file that is created<br/>
 
 make_folders.py:<br/>
-input: the name of the folder with the release files<br/>
 --output: the name of the .zip file that is created<br/>
---ini_file: the name of a .ini file that is necessary for the editor. if not specified, a generic .ini file will be automatically created<br/>
+--author: the name that you want the files to be released with
+
 
 
 

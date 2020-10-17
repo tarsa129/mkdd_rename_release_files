@@ -93,13 +93,16 @@ if __name__ == "__main__":
             shutil.copytree(orig_folder + "/"+ file.name, "files/MRAM.arc/mram/kart/" + file.name)
         elif file.name == "item":
             shutil.copytree(orig_folder + "/item", "files/MRAM.arc/mram/item")
-        elif file.name == "modinfo.ini":
+        elif file.name.endswith(".ini"):
             shutil.copyfile(orig_folder + "/modinfo.ini", folder + "/modinfo.ini")
-        elif file.name == "selectAnm":
+        elif file.name.lower() == "selectanm":
             
             if not os.path.exists("files/SceneData/selectAnm.arc"):
                 os.makedirs("files/SceneData/selectAnm.arc")
             shutil.copytree(orig_folder + "/" +  file.name, "files/SceneData/selectAnm.arc/" + file.name.lower())
+        elif file.name.lower() == "driveranm":
+            os.makedirs("files/ARAM.arc")
+            shutil.copytree(orig_folder + "/" + file.name, "files/ARAM.arc/aram/" + file.name.lower() )
         else:
             shutil.copytree(orig_folder + "/"+  file.name, "files/MRAM.arc/mram/driver/" + file.name)
   
