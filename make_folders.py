@@ -103,6 +103,8 @@ if __name__ == "__main__":
         elif file.name.lower() == "driveranm":
             os.makedirs("files/ARAM.arc")
             shutil.copytree(orig_folder + "/" + file.name, "files/ARAM.arc/aram/" + file.name.lower() )
+        elif file.name == "GCKart.baa":
+            shutil.copyfile(orig_folder + "/" + file.name, "files/GCKart.baa") 
         else:
             shutil.copytree(orig_folder + "/"+  file.name, "files/MRAM.arc/mram/driver/" + file.name)
   
