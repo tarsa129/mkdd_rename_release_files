@@ -104,7 +104,8 @@ if __name__ == "__main__":
             os.makedirs("files/ARAM.arc")
             shutil.copytree(orig_folder + "/" + file.name, "files/ARAM.arc/aram/" + file.name.lower() )
         elif file.name == "GCKart.baa":
-            shutil.copyfile(orig_folder + "/" + file.name, "files/GCKart.baa") 
+            os.makedirs("files/AudioRes")
+            shutil.copyfile(orig_folder + "/" + file.name, "files/AudioRes/" + file.name) 
         else:
             shutil.copytree(orig_folder + "/"+  file.name, "files/MRAM.arc/mram/driver/" + file.name)
   
