@@ -93,7 +93,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
 
     parser.add_argument("input",
-                        help="Filepath to .gci file to be converted into .ght")
+                        help="Filepath to folder that will be used as the base for the .zip")
     parser.add_argument("output", default=None, nargs = '?',
                         help="Filepath to .zip file with course files")     
                         
